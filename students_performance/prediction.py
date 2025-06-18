@@ -10,7 +10,7 @@ Original file is located at
 import joblib
 
 # Load the Random Forest model
-model = joblib.load("model/model_rf.joblib")
+model = joblib.load("students_performance/model/model_rf.joblib")
 
 # Map model output to original labels
 label_map = {
