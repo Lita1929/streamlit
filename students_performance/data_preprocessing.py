@@ -42,7 +42,7 @@ def data_preprocessing(data):
     df = pd.DataFrame()
 
     transformer_map = {
-        "Age": transformer_Age_at_enrollment,
+        "Age_at_enrollment": transformer_Age_at_enrollment,
         "Curricular_units_1st_sem_grade": transformer_Curricular_units_1st_sem_grade,
         "Curricular_units_2nd_sem_grade": transformer_Curricular_units_2nd_sem_grade,
         "Debtor": transformer_Debtor,
