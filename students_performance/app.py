@@ -28,9 +28,11 @@ with col1:
     data["Age_at_enrollment"] = [Age_at_enrollment]
 
 with col2:
-    gender_label = st.selectbox('Gender', ['Female', 'Male'])
+    '''gender_label = st.selectbox('Gender', ['Female', 'Male'])
     Gender = 0 if gender_label == 'Female' else 1
-    data["Gender"] = [Gender] * len(data)
+    data["Gender"] = [Gender] * len(data)'''
+    Gender = st.selectbox('Gender (0=Female, 1=Male)', [0, 1])
+    data["Gender"] = [Gender]
 
 with col3:
     GDP = float(st.number_input(label='GDP', value=0.0))
@@ -39,14 +41,18 @@ with col3:
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    displaced_label = st.selectbox('Displaced', ['No', 'Yes'])
+    '''displaced_label = st.selectbox('Displaced', ['No', 'Yes'])
     Displaced = 0 if displaced_label == 'No' else 1
-    data["Displaced"] = [Displaced] * len(data)
+    data["Displaced"] = [Displaced] * len(data)'''
+    Displaced = st.selectbox('Displaced (0=No, 1=Yes)', [0, 1])
+    data["Displaced"] = [Displaced]
 
 with col2:
-    debtor_label = st.selectbox('Debtor', ['No', 'Yes'])
+    '''debtor_label = st.selectbox('Debtor', ['No', 'Yes'])
     Debtor = 0 if debtor_label == 'No' else 1
-    data["Debtor"] = [Debtor] * len(data)
+    data["Debtor"] = [Debtor] * len(data)'''
+    Debtor = st.selectbox('Debtor (0=No, 1=Yes)', [0, 1])
+    data["Debtor"] = [Debtor]
 
 with col3:
     Unemployment_rate = float(st.number_input(label='Unemployment_rate', value=11.6))
@@ -55,19 +61,25 @@ with col3:
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    educational_special_needs_label = st.selectbox('Educational_special_needs', ['No', 'Yes'])
+    '''educational_special_needs_label = st.selectbox('Educational_special_needs', ['No', 'Yes'])
     Educational_special_needs = 0 if educational_special_needs_label == 'No' else 1
-    data["Educational_special_needs"] = [Educational_special_needs] * len(data)
+    data["Educational_special_needs"] = [Educational_special_needs] * len(data)'''
+    Educational_special_needs = st.selectbox('Educational_special_needs (0=No, 1=Yes)', [0, 1])
+    data["Educational_special_needs"] = [Educational_special_needs]
 
 with col2:
-    tuition_fees_up_to_date_label = st.selectbox('Tuition_fees_up_to_date', ['No', 'Yes'])
+    '''tuition_fees_up_to_date_label = st.selectbox('Tuition_fees_up_to_date', ['No', 'Yes'])
     Tuition_fees_up_to_date = 0 if tuition_fees_up_to_date_label == 'No' else 1
-    data["Tuition_fees_up_to_date"] = [Tuition_fees_up_to_date] * len(data)
+    data["Tuition_fees_up_to_date"] = [Tuition_fees_up_to_date] * len(data)'''
+    Tuition_fees_up_to_date = st.selectbox('Tuition_fees_up_to_date (0=No, 1=Yes)', [0, 1])
+    data["Tuition_fees_up_to_date"] = [Tuition_fees_up_to_date]
 
 with col3:
-    scholarship_holder_label = st.selectbox('Scholarship_holder', ['No', 'Yes'])
+    '''scholarship_holder_label = st.selectbox('Scholarship_holder', ['No', 'Yes'])
     Scholarship_holder = 0 if scholarship_holder_label == 'No' else 1
-    data["Scholarship_holder"] = [Scholarship_holder] * len(data)
+    data["Scholarship_holder"] = [Scholarship_holder] * len(data)'''
+    Scholarship_holder = st.selectbox('Scholarship_holder (0=No, 1=Yes)', [0, 1])
+    data["Scholarship_holder"] = [Scholarship_holder]
 
 col1, col2 = st.columns(2)
 
