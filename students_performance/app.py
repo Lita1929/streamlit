@@ -25,7 +25,7 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     Age_at_enrollment = int(st.number_input(label='Age_at_enrollment', value=23))
-    data["Age_at_enrollment"] = Age_at_enrollment
+    data["Age_at_enrollment"] = [Age_at_enrollment]
 
 with col2:
     gender_label = st.selectbox('Gender', ['Female', 'Male'])
@@ -34,7 +34,7 @@ with col2:
 
 with col3:
     GDP = float(st.number_input(label='GDP', value=0.0))
-    data["GDP"] = GDP
+    data["GDP"] = [GDP]
 
 col1, col2, col3 = st.columns(3)
 
@@ -50,7 +50,7 @@ with col2:
 
 with col3:
     Unemployment_rate = float(st.number_input(label='Unemployment_rate', value=11.6))
-    data["Unemployment_rate"] = Unemployment_rate
+    data["Unemployment_rate"] = [Unemployment_rate]
 
 col1, col2, col3 = st.columns(3)
 
@@ -73,11 +73,11 @@ col1, col2 = st.columns(2)
 
 with col1:
     Curricular_units_1st_sem_grade = float(st.number_input(label='Curricular_units_1st_sem_grade', value=10.64))
-    data["Curricular_units_1st_sem_grade"] = Curricular_units_1st_sem_grade
+    data["Curricular_units_1st_sem_grade"] = [Curricular_units_1st_sem_grade]
 
 with col2:
     Curricular_units_2nd_sem_grade = float(st.number_input(label='Curricular_units_2nd_sem_grade', value=10.23))
-    data["Curricular_units_2nd_sem_grade"] = Curricular_units_2nd_sem_grade
+    data["Curricular_units_2nd_sem_grade"] = [Curricular_units_2nd_sem_grade]
 
 with st.expander("View the Raw Data"):
     st.dataframe(data=data, width=900, height=10)
