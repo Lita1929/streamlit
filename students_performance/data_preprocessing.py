@@ -13,51 +13,51 @@ import joblib
 import numpy as np
 import pandas as pd
 
-"""Loads all previously created objects used for data preprocessing."""
-
-transformer_Age_at_enrollment = joblib.load("students_performance/model/transformer_Age_at_enrollment.joblib")
-transformer_Curricular_units_1st_sem_grade = joblib.load("students_performance/model/transformer_Curricular_units_1st_sem_grade.joblib")
-transformer_Curricular_units_2nd_sem_grade = joblib.load("students_performance/model/transformer_Curricular_units_2nd_sem_grade.joblib")
-transformer_Debtor = joblib.load("students_performance/model/transformer_Debtor.joblib")
-transformer_Displaced = joblib.load("students_performance/model/transformer_Displaced.joblib")
-transformer_Educational_special_needs = joblib.load("students_performance/model/transformer_Educational_special_needs.joblib")
-transformer_GDP = joblib.load("students_performance/model/transformer_GDP.joblib")
-transformer_Gender = joblib.load("students_performance/model/transformer_Gender.joblib")
-transformer_Scholarship_holder = joblib.load("students_performance/model/transformer_Scholarship_holder.joblib")
-transformer_Tuition_fees_up_to_date = joblib.load("students_performance/model/transformer_Tuition_fees_up_to_date.joblib")
-transformer_Unemployment_rate = joblib.load("students_performance/model/transformer_Unemployment_rate.joblib")
-
-"""Define a function to perform the data preprocessing steps."""
-
 def data_preprocessing(data):
-    """Preprocessing data
-
-    Args:
-        data (Pandas DataFrame): Dataframe that contain all the data to make prediction
-
-    return:
-        Pandas DataFrame: Dataframe that contain all the preprocessed data
-    """
-    data = data.copy()
     df = pd.DataFrame()
-
-    transformer_map = {
-        "Age_at_enrollment": transformer_Age_at_enrollment,
-        "Curricular_units_1st_sem_grade": transformer_Curricular_units_1st_sem_grade,
-        "Curricular_units_2nd_sem_grade": transformer_Curricular_units_2nd_sem_grade,
-        "Debtor": transformer_Debtor,
-        "Displaced": transformer_Displaced,
-        "Educational_special_needs": transformer_Educational_special_needs,
-        "GDP": transformer_GDP,
-        "Gender": transformer_Gender,
-        "Scholarship_holder": transformer_Scholarship_holder,
-        "Tuition_fees_up_to_date": transformer_Tuition_fees_up_to_date,
-        "Unemployment_rate": transformer_Unemployment_rate
-    }
-
-    # Loop through each column along with its corresponding transformer
-    for col, transformer in transformer_map.items():
-        df[col] = transformer.transform(data[col].values.reshape(-1, 1)).flatten()
-
+    
+    df["Age_at_enrollment"] = transformer_Age_at_enrollment.transform(
+        np.asarray(data["Age_at_enrollment"]).reshape(-1, 1)
+    )[0]
+    
+    df["Curricular_units_1st_sem_grade"] = transformer_Curricular_units_1st_sem_grade.transform(
+        np.asarray(data["Curricular_units_1st_sem_grade"]).reshape(-1, 1)
+    )[0]
+    
+    df["Curricular_units_2nd_sem_grade"] = transformer_Curricular_units_2nd_sem_grade.transform(
+        np.asarray(data["Curricular_units_2nd_sem_grade"]).reshape(-1, 1)
+    )[0]
+    
+    df["Debtor"] = transformer_Debtor.transform(
+        np.asarray(data["Debtor"]).reshape(-1, 1)
+    )[0]
+    
+    df["Displaced"] = transformer_Displaced.transform(
+        np.asarray(data["Displaced"]).reshape(-1, 1)
+    )[0]
+    
+    df["Educational_special_needs"] = transformer_Educational_special_needs.transform(
+        np.asarray(data["Educational_special_needs"]).reshape(-1, 1)
+    )[0]
+    
+    df["GDP"] = transformer_GDP.transform(
+        np.asarray(data["GDP"]).reshape(-1, 1)
+    )[0]
+    
+    df["Gender"] = transformer_Gender.transform(
+        np.asarray(data["Gender"]).reshape(-1, 1)
+    )[0]
+    
+    df["Scholarship_holder"] = transformer_Scholarship_holder.transform(
+        np.asarray(data["Scholarship_holder"]).reshape(-1, 1)
+    )[0]
+    
+    df["Tuition_fees_up_to_date"] = transformer_Tuition_fees_up_to_date.transform(
+        np.asarray(data["Tuition_fees_up_to_date"]).reshape(-1, 1)
+    )[0]
+    
+    df["Unemployment_rate"] = transformer_Unemployment_rate.transform(
+        np.asarray(data["Unemployment_rate"]).reshape(-1, 1)
+    )[0]
+    
     return df
-
