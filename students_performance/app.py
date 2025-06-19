@@ -95,7 +95,23 @@ with st.expander("View the Raw Data"):
     st.dataframe(data=data, width=900, height=10)
 
 if st.button('Predict'):
-    new_data = data_preprocessing(data=data)
-    with st.expander("View the Preprocessed Data"):
-        st.dataframe(data=new_data, width=900, height=10)
-    st.write("Students Performance: {}".format(prediction(new_data)))
+    if st.button('Predict'):
+    st.write("=== Input Data ===")
+    st.dataframe(data)  # Tampilkan data input user
+    
+    st.write("=== Data Types ===")
+    st.write(data.dtypes)  # Tampilkan tipe data tiap kolom
+    
+    st.write("=== Cek ada data kosong gak ===")
+    st.write(data.isnull().sum())  # Cek ada data kosong
+    
+    try:
+        new_data = data_preprocessing(data=data)
+        st.write("=== Preprocessed Data ===")
+        st.dataframe(new_data)
+        result = prediction(new_data)
+        st.write("Students Performance: {}".format(result))
+    except Exception as e:
+        st.error(f"Ada error saat prediksi: {e}")
+        import traceback
+        st.text(traceback.format_exc())
