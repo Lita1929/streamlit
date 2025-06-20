@@ -13,6 +13,18 @@ import joblib
 import numpy as np
 import pandas as pd
 
+transformer_Age_at_enrollment = joblib.load("model/transformer_Age_at_enrollment.joblib")
+transformer_Curricular_units_1st_sem_grade = joblib.load("model/transformer_Curricular_units_1st_sem_grade.joblib")
+transformer_Curricular_units_2nd_sem_grade = joblib.load("model/transformer_Curricular_units_2nd_sem_grade.joblib")
+transformer_Debtor = joblib.load("model/transformer_Debtor.joblib")
+transformer_Displaced = joblib.load("model/transformer_Displaced.joblib")
+transformer_Educational_special_needs = joblib.load("model/transformer_Educational_special_needs.joblib")
+transformer_GDP = joblib.load("model/transformer_GDP.joblib")
+transformer_Gender = joblib.load("model/transformer_Gender.joblib")
+transformer_Scholarship_holder = joblib.load("model/transformer_Scholarship_holder.joblib")
+transformer_Tuition_fees_up_to_date = joblib.load("model/transformer_Tuition_fees_up_to_date.joblib")
+transformer_Unemployment_rate = joblib.load("model/transformer_Unemployment_rate.joblib")
+
 def data_preprocessing(data):
     df = pd.DataFrame()
     
