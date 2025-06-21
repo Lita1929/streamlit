@@ -83,7 +83,11 @@ with st.expander("View the Raw Data"):
     st.dataframe(data=data, width=800, height=50)
 
 if st.button('Predict'):
-    new_data = data_preprocessing(data=data)
-    with st.expander("View the Preprocessed Data"):
-        st.dataframe(data=new_data, width=800, height=50)
-    st.write("Students Performance: {}".format(prediction(new_data)))
+    try:
+        new_data = data_preprocessing(data=data)
+        with st.expander("View the Preprocessed Data"):
+            st.dataframe(data=new_data, width=800, height=50)
+        result = prediction(new_data)
+        st.write("Students Performance: {}".format(result))
+    except Exception as e:
+        st.error(f"Prediction error: {e}")
