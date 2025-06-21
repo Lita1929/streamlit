@@ -41,13 +41,12 @@ def data_preprocessing(data):
         "Educational_special_needs": transformer_Educational_special_needs,
         "Debtor": transformer_Debtor,
         "Tuition_fees_up_to_date": transformer_Tuition_fees_up_to_date,
-        "Scholarship_holder": transformer_Scholarship_holder   
+        "Scholarship_holder": transformer_Scholarship_holder
     }
 
     transformed_data = {}
-    for feature, transformer in transformers.items():
-        value = transformer.transform(np.asarray(data[feature]).reshape(-1, 1)).flatten()[0]
-        # Kolom DataFrame harus pakai prefix 'transform_'
-        transformed_data["transform_" + feature] = value
+    for feature_name, transformer in transformers.items():
+        value = transformer.transform(np.asarray(data[feature_name]).reshape(-1, 1)).flatten()[0]
+        transformed_data[f"transform_{feature_name}"] = value
 
     return pd.DataFrame([transformed_data])
