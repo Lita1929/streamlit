@@ -19,7 +19,7 @@ with col1:
 with col2:
     st.header('Students Performance App (Prototype)')
 
-data = pd.DataFrame()transformer_
+data = pd.DataFrame()
 
 col1, col2, col3 = st.columns(3)
 
@@ -80,7 +80,7 @@ with col2:
     data["Curricular_units_2nd_sem_grade"] = [Curricular_units_2nd_sem_grade]
 
 with st.expander("View the Raw Data"):
-    st.dataframe(data=data, width=900, height=20)
+    st.dataframe(data=data, width=800, height=50)
 
 if st.button('Predict'):
     new_data = data_preprocessing(data=data)
