@@ -27,26 +27,30 @@ transformer_Scholarship_holder = joblib.load("students_performance/model/transfo
 transformer_Tuition_fees_up_to_date = joblib.load("students_performance/model/transformer_Tuition_fees_up_to_date.joblib")
 transformer_Unemployment_rate = joblib.load("students_performance/model/transformer_Unemployment_rate.joblib")
 
-"""Define a function to perform the data preprocessing steps."""
-
 def data_preprocessing(data):
-    transformers = {
-        "Age_at_enrollment": transformer_Age_at_enrollment,
-        "Curricular_units_1st_sem_grade": transformer_Curricular_units_1st_sem_grade,
-        "Curricular_units_2nd_sem_grade": transformer_Curricular_units_2nd_sem_grade,
-        "Unemployment_rate": transformer_Unemployment_rate,
-        "GDP": transformer_GDP,
-        "Gender": transformer_Gender,
-        "Displaced": transformer_Displaced,
-        "Educational_special_needs": transformer_Educational_special_needs,
-        "Debtor": transformer_Debtor,
-        "Tuition_fees_up_to_date": transformer_Tuition_fees_up_to_date,
-        "Scholarship_holder": transformer_Scholarship_holder
-    }
+  data = data.copy()
+  df = pd.DataFrame()
+  
+  df["transformer_Age_at_enrollment"] = transformer_Age_at_enrollment.transform(np.asarray(data["transformer_Age_at_enrollment"]).reshape(-1, 1))[0]
+    
+  df["transformer_Curricular_units_1st_sem_grade"] = transformer_Curricular_units_1st_sem_grade.transform(np.asarray(data["transformer_Curricular_units_1st_sem_grade"]).reshape(-1, 1))[0]
+    
+  df["transformer_Curricular_units_2nd_sem_grade"] = transformer_Curricular_units_2nd_sem_grade.transform(np.asarray(data["transformer_Curricular_units_2nd_sem_grade"]).reshape(-1, 1))[0]
 
-    processed = {}
-    for feature, transformer in transformers.items():
-        val = transformer.transform(np.asarray(data[feature]).reshape(-1, 1)).flatten()[0]
-        processed[f"transform_{feature}"] = val
+  df["transformer_Unemployment_rate"] = transformer_Unemployment_rate.transform(np.asarray(data["transformer_Unemployment_rate"]).reshape(-1, 1))[0]
+    
+  df["transformer_GDP"] = transformer_GDP.transform(np.asarray(data["transformer_GDP"]).reshape(-1, 1))[0]
 
-    return pd.DataFrame([processed])
+  df["transformer_Gender"] = transformer_Gender.transform(np.asarray(data["transformer_Gender"]).reshape(-1, 1))[0]
+
+  df["transformer_Displaced"] = transformer_Displaced.transform(np.asarray(data["transformer_Displaced"]).reshape(-1, 1))[0]
+
+  df["transformer_Educational_special_needs"] = transformer_Educational_special_needs.transform(np.asarray(data["transformer_Educational_special_needs"]).reshape(-1, 1))[0]
+    
+  df["transformer_Debtor"] = transformer_Debtor.transform(np.asarray(data["transformer_Debtor"]).reshape(-1, 1))[0]
+
+  df["transformer_Tuition_fees_up_to_date"] = transformer_Tuition_fees_up_to_date.transform(np.asarray(data["transformer_Tuition_fees_up_to_date"]).reshape(-1, 1))[0]
+    
+  df["transformer_Scholarship_holder"] = transformer_Scholarship_holder.transform(np.asarray(data["transformer_Scholarship_holder"]).reshape(-1, 1))[0]
+
+  return df
