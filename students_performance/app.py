@@ -24,60 +24,60 @@ data = pd.DataFrame()
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    Age_at_enrollment = int(st.number_input(label='Age_at_enrollment', value=23))
-    data["transformer_Age_at_enrollment"] = [Age_at_enrollment]
+    transformer_Age_at_enrollment = int(st.number_input(label='Age_at_enrollment', value=23))
+    data["transformer_Age_at_enrollment"] = [transformer_Age_at_enrollment]
 
 with col2:
     gender_label = st.selectbox('Gender', ['Female', 'Male'])
-    Gender = 0 if gender_label == 'Female' else 1
-    data["transformer_Gender"] = [Gender]
+    transformer_Gender = 0 if gender_label == 'Female' else 1
+    data["transformer_Gender"] = [transformer_Gender]
 
 with col3:
-    GDP = float(st.number_input(label='GDP', value=0.0))
-    data["transformer_GDP"] = [GDP]
+    transformer_GDP = float(st.number_input(label='GDP', value=0.0))
+    data["transformer_GDP"] = [transformer_GDP]
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
     displaced_label = st.selectbox('Displaced', ['No', 'Yes'])
-    Displaced = 0 if displaced_label == 'No' else 1
-    data["transformer_Displaced"] = [Displaced]
+    transformer_Displaced = 0 if displaced_label == 'No' else 1
+    data["transformer_Displaced"] = [transformer_Displaced]
 
 with col2:
     debtor_label = st.selectbox('Debtor', ['No', 'Yes'])
-    Debtor = 0 if debtor_label == 'No' else 1
-    data["transformer_Debtor"] = [Debtor]
+    transformer_Debtor = 0 if debtor_label == 'No' else 1
+    data["transformer_Debtor"] = [transformer_Debtor]
 
 with col3:
-    Unemployment_rate = float(st.number_input(label='Unemployment_rate', value=11.6))
-    data["transformer_Unemployment_rate"] = [Unemployment_rate]
+    transformer_Unemployment_rate = float(st.number_input(label='Unemployment_rate', value=11.6))
+    data["transformer_Unemployment_rate"] = [transformer_Unemployment_rate]
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
     educational_special_needs_label = st.selectbox('Educational_special_needs', ['No', 'Yes'])
-    Educational_special_needs = 0 if educational_special_needs_label == 'No' else 1
-    data["transformer_Educational_special_needs"] = [Educational_special_needs]
+    transformer_Educational_special_needs = 0 if educational_special_needs_label == 'No' else 1
+    data["transformer_Educational_special_needs"] = [transformer_Educational_special_needs]
 
 with col2:
     tuition_fees_up_to_date_label = st.selectbox('Tuition_fees_up_to_date', ['No', 'Yes'])
-    Tuition_fees_up_to_date = 0 if tuition_fees_up_to_date_label == 'No' else 1
-    data["transformer_Tuition_fees_up_to_date"] = [Tuition_fees_up_to_date]
+    transformer_Tuition_fees_up_to_date = 0 if tuition_fees_up_to_date_label == 'No' else 1
+    data["transformer_Tuition_fees_up_to_date"] = [transformer_Tuition_fees_up_to_date]
 
 with col3:
     scholarship_holder_label = st.selectbox('Scholarship_holder', ['No', 'Yes'])
-    Scholarship_holder = 0 if scholarship_holder_label == 'No' else 1
-    data["transformer_Scholarship_holder"] = [Scholarship_holder]
+    transformer_Scholarship_holder = 0 if scholarship_holder_label == 'No' else 1
+    data["transformer_Scholarship_holder"] = [transformer_Scholarship_holder]
 
 col1, col2 = st.columns(2)
 
 with col1:
-    Curricular_units_1st_sem_grade = float(st.number_input(label='Curricular_units_1st_sem_grade', value=10.64))
-    data["transformer_Curricular_units_1st_sem_grade"] = [Curricular_units_1st_sem_grade]
+    transformer_Curricular_units_1st_sem_grade = float(st.number_input(label='Curricular_units_1st_sem_grade', value=10.64))
+    data["transformer_Curricular_units_1st_sem_grade"] = [transformer_Curricular_units_1st_sem_grade]
 
 with col2:
-    Curricular_units_2nd_sem_grade = float(st.number_input(label='Curricular_units_2nd_sem_grade', value=10.23))
-    data["transformer_Curricular_units_2nd_sem_grade"] = [Curricular_units_2nd_sem_grade]
+    transformer_Curricular_units_2nd_sem_grade = float(st.number_input(label='Curricular_units_2nd_sem_grade', value=10.23))
+    data["transformer_Curricular_units_2nd_sem_grade"] = [transformer_Curricular_units_2nd_sem_grade]
 
 with st.expander("View the Raw Data"):
     st.dataframe(data=data, width=800, height=50)
