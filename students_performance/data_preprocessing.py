@@ -44,9 +44,9 @@ def data_preprocessing(data):
         "Scholarship_holder": transformer_Scholarship_holder
     }
 
-    transformed_data = {}
-    for feature_name, transformer in transformers.items():
-        value = transformer.transform(np.asarray(data[feature_name]).reshape(-1, 1)).flatten()[0]
-        transformed_data[f"transform_{feature_name}"] = value
+    processed = {}
+    for feature, transformer in transformers.items():
+        val = transformer.transform(np.asarray(data[feature]).reshape(-1, 1)).flatten()[0]
+        processed[f"transform_{feature}"] = val
 
-    return pd.DataFrame([transformed_data])
+    return pd.DataFrame([processed])
