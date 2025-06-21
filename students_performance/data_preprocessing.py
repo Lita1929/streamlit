@@ -34,14 +34,14 @@ def data_preprocessing(data):
         "Age_at_enrollment": transformer_Age_at_enrollment,
         "Curricular_units_1st_sem_grade": transformer_Curricular_units_1st_sem_grade,
         "Curricular_units_2nd_sem_grade": transformer_Curricular_units_2nd_sem_grade,
-        "Debtor": transformer_Debtor,
-        "Displaced": transformer_Displaced,
-        "Educational_special_needs": transformer_Educational_special_needs,
+        "Unemployment_rate": transformer_Unemployment_rate,
         "GDP": transformer_GDP,
         "Gender": transformer_Gender,
-        "Scholarship_holder": transformer_Scholarship_holder,
+        "Displaced": transformer_Displaced,
+        "Educational_special_needs": transformer_Educational_special_needs,
+        "Debtor": transformer_Debtor,
         "Tuition_fees_up_to_date": transformer_Tuition_fees_up_to_date,
-        "Unemployment_rate": transformer_Unemployment_rate,
+        "Scholarship_holder": transformer_Scholarship_holder   
     }
 
     transformed_data = {}
